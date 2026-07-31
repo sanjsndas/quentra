@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookies · Quentra Pancake Ripple</title>
+  <!-- premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f8f5f0;
+      color: #1e1b17;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    :root {
+      --brand-umber: #4a3a2e;
+      --brand-cream: #f0e7db;
+      --brand-rose: #c99b8b;
+      --brand-gold: #ba9b6b;
+      --brand-slate: #7a6e64;
+      --brand-milk: #fcf9f5;
+      --shadow-soft: 0 20px 40px -12px rgba(30, 27, 23, 0.12);
+      --shadow-float: 0 30px 50px -20px rgba(30, 27, 23, 0.18);
+      --radius-card: 2.5rem 0.75rem 2.5rem 0.75rem;
+      --radius-btn: 100px 20px 100px 20px;
+    }
+
+    .serif { font-family: 'DM Serif Display', serif; }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 1.05; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; }
+    h4 { font-size: 1.35rem; }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1440px; margin: 0 auto; }
+
+    /* ===== NAVIGATION · ORIGINAL FLOATING BAR ===== */
+    .nav-orbit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      margin: 1.5rem 0 3.5rem 0;
+      background: rgba(252, 249, 245, 0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 120px 30px 120px 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 245, 235, 0.5);
+      flex-wrap: wrap;
+    }
+
+    .logo-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+    }
+    .logo-wordmark span:first-child { color: var(--brand-umber); }
+    .logo-wordmark span:last-child { color: var(--brand-gold); font-style: italic; font-size: 1.4rem; margin-left: 0.3rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--brand-slate);
+      flex-wrap: wrap;
+    }
+    .nav-links a { transition: color 0.2s; border-bottom: 2px solid transparent; padding-bottom: 0.2rem; }
+    .nav-links a:hover { color: var(--brand-umber); border-bottom-color: var(--brand-gold); }
+    .nav-links a.active-cookie {
+      border-bottom-color: var(--brand-gold);
+      color: var(--brand-umber);
+    }
+
+    .nav-cta {
+      background: var(--brand-umber);
+      color: #fcf9f5;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1px solid var(--brand-umber);
+    }
+    .nav-cta:hover { background: transparent; color: var(--brand-umber); }
+
+    /* ===== COOKIES PAGE SPECIFIC ===== */
+    .cookie-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2rem 0 5rem 0;
+      align-items: start;
+    }
+
+    .cookie-text {
+      background: var(--brand-milk);
+      padding: 2.5rem 2.8rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-float);
+      border: 1px solid rgba(186, 155, 107, 0.15);
+    }
+
+    .cookie-text .badge {
+      background: var(--brand-rose);
+      color: white;
+      padding: 0.2rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .cookie-text h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .cookie-text .sub {
+      color: var(--brand-slate);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .cookie-block {
+      margin: 2rem 0;
+      border-bottom: 1px solid #f0e7db;
+      padding-bottom: 2rem;
+    }
+    .cookie-block:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .cookie-block h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--brand-umber);
+    }
+    .cookie-block p {
+      color: #2b2621;
+      margin-bottom: 0.75rem;
+    }
+    .cookie-block ul {
+      list-style: none;
+      padding-left: 0.5rem;
+    }
+    .cookie-block ul li {
+      padding: 0.3rem 0 0.3rem 1.5rem;
+      position: relative;
+    }
+    .cookie-block ul li::before {
+      content: "▹";
+      color: var(--brand-gold);
+      position: absolute;
+      left: 0;
+    }
+
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 0.5rem;
+      font-size: 0.95rem;
+    }
+    .cookie-table th {
+      text-align: left;
+      background: #f0e7db;
+      padding: 0.6rem 0.8rem;
+      font-weight: 600;
+      color: var(--brand-umber);
+    }
+    .cookie-table td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid #f0e7db;
+    }
+    .cookie-table tr:last-child td { border-bottom: none; }
+
+    /* side card – quick summary */
+    .cookie-side {
+      background: #f3ede6;
+      padding: 2.5rem 2.2rem;
+      border-radius: 1.8rem 0.5rem 1.8rem 0.5rem;
+      box-shadow: var(--shadow-soft);
+      border-left: 6px solid var(--brand-gold);
+      position: sticky;
+      top: 2rem;
+    }
+    .cookie-side h3 {
+      margin-bottom: 1.5rem;
+    }
+    .cookie-side .side-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .cookie-side .side-item .emoji {
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+    .cookie-side .side-item p {
+      font-size: 0.95rem;
+      color: #2b2621;
+    }
+    .cookie-side .side-item strong {
+      color: var(--brand-umber);
+    }
+
+    .cookie-side .updated {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #dacfc4;
+      font-size: 0.85rem;
+      color: var(--brand-slate);
+    }
+
+    /* ===== FOOTER · original ===== */
+    .footer-orbit {
+      margin: 5rem 0 1.5rem;
+      padding: 3rem 2rem 1.5rem;
+      background: #1e1b17;
+      color: #dacfc4;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-orbit .brand-footer { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-gold); }
+    .footer-orbit a { color: #b8aaa0; border-bottom: 1px dotted transparent; }
+    .footer-orbit a:hover { color: #fcf9f5; border-bottom-color: var(--brand-gold); }
+    .footer-orbit .col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-orbit .col h5 { color: #f0e7db; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .cookie-grid { grid-template-columns: 1fr; }
+      .footer-orbit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-orbit { flex-direction: column; gap: 1rem; align-items: stretch; border-radius: 40px; }
+      .nav-links { justify-content: center; gap: 1.2rem; }
+      .cookie-text, .cookie-side { padding: 1.8rem; }
+      .footer-orbit { grid-template-columns: 1fr; }
+      .cookie-table { font-size: 0.8rem; }
+      .cookie-table th, .cookie-table td { padding: 0.4rem 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav-orbit">
+    <div class="logo-wordmark">
+      <span>Quentra</span>
+      <span>· Pancake Ripple</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html" class="active-cookie">Cookies Policy</a>
+      <a href="categories.html">Categories</a>
+      <a href="disclamier.html">Disclaimer</a>
+    </div>
+  </nav>
+
+  <!-- ========== COOKIES PAGE ========== -->
+  <div style="margin-bottom: 1rem;">
+    <span style="background: var(--brand-rose); color: white; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase;">🍪 crumb control</span>
+    <h1 style="margin: 0.5rem 0 0.2rem;">Cookies Policy</h1>
+    <p style="color: var(--brand-slate); font-size: 1.2rem; max-width: 700px;">How we use cookies to make your experience as golden and fluffy as our pancakes.</p>
+  </div>
+
+  <div class="cookie-grid">
+    <!-- left: full cookie policy text -->
+    <div class="cookie-text">
+      <span class="badge">📅 last updated: april 2026</span>
+      <h2>Our cookie philosophy</h2>
+      <p class="sub">At Quentra · Pancake Ripple, we use cookies to enhance functionality, analyze traffic, and remember your preferences — just like the perfect flip, we keep it light and precise.</p>
+
+      <div class="cookie-block">
+        <h3>1. What are cookies?</h3>
+        <p>Cookies are small text files stored on your device when you visit a website. They help us recognize you, remember your settings, and understand how you interact with our content. We use both session and persistent cookies.</p>
+      </div>
+
+      <div class="cookie-block">
+        <h3>2. Types of cookies we use</h3>
+        <p>We categorize cookies by their purpose. Below is a detailed breakdown:</p>
+        <table class="cookie-table">
+          <thead>
+            <tr><th>Category</th><th>Purpose</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Essential</strong></td><td>Required for basic site functionality (e.g., navigation, security).</td><td>Session</td></tr>
+            <tr><td><strong>Analytics</strong></td><td>Collect anonymous usage data to improve content and performance.</td><td>Up to 24 months</td></tr>
+            <tr><td><strong>Preference</strong></td><td>Remember your settings (e.g., language, dark mode).</td><td>12 months</td></tr>
+            <tr><td><strong>Marketing</strong></td><td>Used only if you opt-in; helps deliver relevant content.</td><td>12 months</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top: 0.8rem;">We do not use third-party tracking cookies without your explicit consent.</p>
+      </div>
+
+      <div class="cookie-block">
+        <h3>3. Your control</h3>
+        <p>You can manage or delete cookies at any time through your browser settings. Most browsers allow you to block or remove cookies, though this may affect some features.</p>
+        <ul>
+          <li><strong>Chrome:</strong> Settings → Privacy & Security → Cookies</li>
+          <li><strong>Firefox:</strong> Preferences → Privacy & Security → Cookies</li>
+          <li><strong>Safari:</strong> Preferences → Privacy → Cookies</li>
+          <li><strong>Edge:</strong> Settings → Cookies and site permissions</li>
+        </ul>
+        <p>You can also adjust your cookie preferences directly on our site via the floating cookie banner (if enabled).</p>
+      </div>
+
+      <div class="cookie-block">
+        <h3>4. Consent & updates</h3>
+        <p>By using our site, you consent to our use of cookies as described in this policy. We may update this policy occasionally — any changes will be posted here with a revised date. We encourage you to review it periodically.</p>
+        <ul>
+          <li>You can withdraw consent at any time by clearing cookies or adjusting your settings.</li>
+          <li>We treat your data with the same care we use for our signature batter.</li>
+        </ul>
+      </div>
+
+      <p style="margin-top: 1.8rem; font-size: 0.9rem; color: var(--brand-slate); border-top: 1px solid #f0e7db; padding-top: 1.5rem;">For any questions about our cookie usage, please contact us at <strong>privacy@quentra-pancake.com</strong>.</p>
+    </div>
+
+    <!-- right: quick summary / side card -->
+    <div class="cookie-side">
+      <h3>🍪 cookie snapshot</h3>
+      <div class="side-item">
+        <span class="emoji">🧩</span>
+        <p><strong>Essential:</strong> required for core features (session).</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">📊</span>
+        <p><strong>Analytics:</strong> anonymous performance data (up to 24 months).</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">⚙️</span>
+        <p><strong>Preference:</strong> remember your choices (12 months).</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">🎯</span>
+        <p><strong>Marketing:</strong> only with your explicit consent.</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">🛠️</span>
+        <p><strong>Manage:</strong> adjust via browser settings or our consent tool.</p>
+      </div>
+      <div class="updated">
+        🍁 We respect your privacy. Our cookies are used to improve your experience, not to track you across the web.
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-orbit">
+    <div>
+      <div class="brand-footer">Quentra · Pancake Ripple</div>
+      <p style="margin-top: 0.8rem; max-width: 300px; color: #b8aaa0;">Authority blog for culinary science, technique, and the art of breakfast.</p>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col"><h5>Explore</h5><a href="#">Blog</a><a href="#">Categories</a><a href="#">Authors</a><a href="#">Archive</a></div>
+    <div class="col"><h5>Info</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+    <div class="col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a><a href="#">Sitemap</a></div>
+  </footer>
+</div>
+</body>
+</html>

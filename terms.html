@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms · Quentra Pancake Ripple</title>
+  <!-- premium typography: inter + display serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f8f5f0;
+      color: #1e1b17;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    :root {
+      --brand-umber: #4a3a2e;
+      --brand-cream: #f0e7db;
+      --brand-rose: #c99b8b;
+      --brand-gold: #ba9b6b;
+      --brand-slate: #7a6e64;
+      --brand-milk: #fcf9f5;
+      --shadow-soft: 0 20px 40px -12px rgba(30, 27, 23, 0.12);
+      --shadow-float: 0 30px 50px -20px rgba(30, 27, 23, 0.18);
+      --radius-card: 2.5rem 0.75rem 2.5rem 0.75rem;
+      --radius-btn: 100px 20px 100px 20px;
+    }
+
+    .serif { font-family: 'DM Serif Display', serif; }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 1.05; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin: 1.8rem 0 1rem; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; margin-top: 2rem; }
+    h4 { font-size: 1.35rem; }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1440px; margin: 0 auto; }
+
+    /* ===== NAVIGATION · ORIGINAL FLOATING BAR ===== */
+    .nav-orbit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      margin: 1.5rem 0 3.5rem 0;
+      background: rgba(252, 249, 245, 0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 120px 30px 120px 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 245, 235, 0.5);
+      flex-wrap: wrap;
+    }
+
+    .logo-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+    }
+    .logo-wordmark span:first-child { color: var(--brand-umber); }
+    .logo-wordmark span:last-child { color: var(--brand-gold); font-style: italic; font-size: 1.4rem; margin-left: 0.3rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--brand-slate);
+    }
+    .nav-links a { transition: color 0.2s; border-bottom: 2px solid transparent; padding-bottom: 0.2rem; }
+    .nav-links a:hover { color: var(--brand-umber); border-bottom-color: var(--brand-gold); }
+
+    .nav-cta {
+      background: var(--brand-umber);
+      color: #fcf9f5;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1px solid var(--brand-umber);
+    }
+    .nav-cta:hover { background: transparent; color: var(--brand-umber); }
+
+    /* ===== TERMS PAGE · LEGAL CARD ===== */
+    .terms-masthead {
+      background: var(--brand-milk);
+      border-radius: var(--radius-card);
+      padding: 2.5rem 3rem 2.5rem;
+      box-shadow: var(--shadow-float);
+      margin-bottom: 3rem;
+      border: 1px solid rgba(186, 155, 107, 0.15);
+    }
+    .terms-masthead .badge {
+      background: var(--brand-rose);
+      color: white;
+      padding: 0.2rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .terms-masthead h1 { margin: 0.25rem 0; }
+    .terms-masthead .sub { color: var(--brand-slate); font-size: 1.1rem; max-width: 700px; }
+    .terms-masthead .meta { margin-top: 1.2rem; font-size: 0.9rem; color: var(--brand-slate); }
+
+    .terms-body {
+      background: #f3ede6;
+      padding: 2.5rem 3rem;
+      border-radius: 2rem 0.5rem 2rem 0.5rem;
+      border-left: 6px solid var(--brand-gold);
+      margin-bottom: 3rem;
+    }
+    .terms-body p { margin-bottom: 1.2rem; color: #2a2520; }
+    .terms-body ul { margin: 1.2rem 0 1.8rem 1.8rem; }
+    .terms-body li { margin-bottom: 0.5rem; color: #2a2520; }
+    .terms-body h3 { margin-top: 2rem; margin-bottom: 0.5rem; }
+    .terms-body .highlight-box {
+      background: #eae2d7;
+      padding: 1.2rem 2rem;
+      border-radius: 1.5rem 0.3rem 1.5rem 0.3rem;
+      margin: 1.8rem 0;
+      border-left: 4px solid var(--brand-gold);
+    }
+
+    .terms-footer-note {
+      background: #1e1b17;
+      color: #f0e7db;
+      padding: 2rem 2.5rem;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      margin: 3rem 0 4rem 0;
+    }
+    .terms-footer-note h3 { color: #fcf9f5; margin-top: 0; }
+    .terms-footer-note p { color: #b8aaa0; max-width: 700px; }
+
+    /* ===== FOOTER ===== */
+    .footer-orbit {
+      margin: 5rem 0 1.5rem;
+      padding: 3rem 2rem 1.5rem;
+      background: #1e1b17;
+      color: #dacfc4;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-orbit .brand-footer { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-gold); }
+    .footer-orbit a { color: #b8aaa0; border-bottom: 1px dotted transparent; }
+    .footer-orbit a:hover { color: #fcf9f5; border-bottom-color: var(--brand-gold); }
+    .footer-orbit .col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-orbit .col h5 { color: #f0e7db; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .footer-orbit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-orbit { flex-direction: column; gap: 1rem; align-items: stretch; border-radius: 40px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+      .footer-orbit { grid-template-columns: 1fr; }
+      .terms-masthead { padding: 2rem 1.5rem; }
+      .terms-body { padding: 1.8rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav-orbit">
+    <div class="logo-wordmark">
+      <span>Quentra</span>
+      <span>· Pancake Ripple</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html" style="border-bottom-color: var(--brand-gold);">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html">CATEGORIES</a>
+      <a href="disclamier.html">DISCLAMIER</a>
+    </div>
+  </nav>
+
+  <!-- ========== TERMS MASTHEAD ========== -->
+  <section class="terms-masthead">
+    <span class="badge">⚖️ terms of service</span>
+    <h1>Terms &amp; conditions</h1>
+    <p class="sub">Last updated: July 28, 2026 · This page outlines the terms under which you may use Quentra · Pancake Ripple.</p>
+    <div class="meta">📌 effective from 2026-07-28 · version 2.3</div>
+  </section>
+
+  <!-- ========== TERMS BODY ========== -->
+  <div class="terms-body">
+    <h3>1. Acceptance of Terms</h3>
+    <p>By accessing and using Quentra · Pancake Ripple (“the Site”), you accept and agree to be bound by these Terms of Service. If you do not agree, please do not use the Site. We reserve the right to update these terms at any time.</p>
+
+    <h3>2. Content &amp; Copyright</h3>
+    <p>All original content — including articles, photographs, graphics, and recipes — is the intellectual property of Quentra · Pancake Ripple unless otherwise noted. You may not reproduce, distribute, or create derivative works without explicit permission.</p>
+    <ul>
+      <li><strong>Personal use:</strong> You may print or share articles for non‑commercial purposes, provided you credit the Site.</li>
+      <li><strong>Commercial use:</strong> Requires written consent. Contact us for licensing.</li>
+    </ul>
+
+    <h3>3. User Contributions</h3>
+    <p>If you submit comments, guest posts, or other materials, you grant us a worldwide, royalty‑free license to publish, edit, and distribute your contribution. You retain ownership, but we may use it in connection with the Site.</p>
+    <div class="highlight-box">
+      <strong>🧑‍🍳 “We love hearing from our readers — but please ensure your contributions are original and respectful.”</strong>
+    </div>
+
+    <h3>4. Prohibited Uses</h3>
+    <p>You agree not to use the Site for any unlawful purpose or in any way that could damage, disable, or impair the Site. This includes, but is not limited to:</p>
+    <ul>
+      <li>Uploading malicious code or viruses.</li>
+      <li>Harassing, threatening, or defaming others.</li>
+      <li>Impersonating any person or entity.</li>
+    </ul>
+
+    <h3>5. Disclaimer &amp; Limitation of Liability</h3>
+    <p>The Site is provided “as is” without warranties of any kind. We do not guarantee that the information is accurate, complete, or current. In no event shall Quentra · Pancake Ripple be liable for any damages arising from the use of the Site.</p>
+    <p><strong>—</strong> We are a culinary journal; all recipes and techniques are tested, but individual results may vary.</p>
+
+    <h3>6. External Links</h3>
+    <p>We may link to third‑party websites. These links are provided for convenience and do not imply endorsement. We are not responsible for the content or practices of external sites.</p>
+
+    <h3>7. Termination</h3>
+    <p>We reserve the right to suspend or terminate access to the Site at our sole discretion, without notice, for conduct that violates these Terms or is harmful to other users.</p>
+
+    <h3>8. Governing Law</h3>
+    <p>These Terms are governed by the laws of the jurisdiction in which we operate, without regard to conflict of law principles.</p>
+
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--brand-slate);">If you have any questions about these Terms, please <a href="contact.html" style="border-bottom: 1px solid var(--brand-gold);">contact us</a>.</p>
+  </div>
+
+  <!-- ========== TERMS FOOTER NOTE ========== -->
+  <div class="terms-footer-note">
+    <h3>📖 A note on transparency</h3>
+    <p>We believe in clear, honest communication. These terms are designed to protect both our readers and our editorial integrity. We’ll always inform you of material changes via our newsletter or a notice on the Site.</p>
+    <p style="margin-top: 0.8rem; font-size: 0.9rem;">— The Quentra team</p>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-orbit">
+    <div>
+      <div class="brand-footer">Quentra · Pancake Ripple</div>
+      <p style="margin-top: 0.8rem; max-width: 300px; color: #b8aaa0;">Authority blog for culinary science, technique, and the art of breakfast.</p>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col"><h5>Explore</h5><a href="#">Blog</a><a href="#">Categories</a><a href="#">Authors</a><a href="#">Archive</a></div>
+    <div class="col"><h5>Info</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+    <div class="col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a><a href="#">Sitemap</a></div>
+  </footer>
+</div>
+</body>
+</html>

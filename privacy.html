@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy · Quentra Pancake Ripple</title>
+  <!-- premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f8f5f0;
+      color: #1e1b17;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    :root {
+      --brand-umber: #4a3a2e;
+      --brand-cream: #f0e7db;
+      --brand-rose: #c99b8b;
+      --brand-gold: #ba9b6b;
+      --brand-slate: #7a6e64;
+      --brand-milk: #fcf9f5;
+      --shadow-soft: 0 20px 40px -12px rgba(30, 27, 23, 0.12);
+      --shadow-float: 0 30px 50px -20px rgba(30, 27, 23, 0.18);
+      --radius-card: 2.5rem 0.75rem 2.5rem 0.75rem;
+      --radius-btn: 100px 20px 100px 20px;
+    }
+
+    .serif { font-family: 'DM Serif Display', serif; }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 1.05; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; }
+    h4 { font-size: 1.35rem; }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1440px; margin: 0 auto; }
+
+    /* ===== NAVIGATION · ORIGINAL FLOATING BAR ===== */
+    .nav-orbit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      margin: 1.5rem 0 3.5rem 0;
+      background: rgba(252, 249, 245, 0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 120px 30px 120px 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 245, 235, 0.5);
+      flex-wrap: wrap;
+    }
+
+    .logo-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+    }
+    .logo-wordmark span:first-child { color: var(--brand-umber); }
+    .logo-wordmark span:last-child { color: var(--brand-gold); font-style: italic; font-size: 1.4rem; margin-left: 0.3rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--brand-slate);
+      flex-wrap: wrap;
+    }
+    .nav-links a { transition: color 0.2s; border-bottom: 2px solid transparent; padding-bottom: 0.2rem; }
+    .nav-links a:hover { color: var(--brand-umber); border-bottom-color: var(--brand-gold); }
+
+    .nav-cta {
+      background: var(--brand-umber);
+      color: #fcf9f5;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1px solid var(--brand-umber);
+    }
+    .nav-cta:hover { background: transparent; color: var(--brand-umber); }
+
+    /* ===== PRIVACY PAGE SPECIFIC ===== */
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2rem 0 5rem 0;
+      align-items: start;
+    }
+
+    .privacy-text {
+      background: var(--brand-milk);
+      padding: 2.5rem 2.8rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-float);
+      border: 1px solid rgba(186, 155, 107, 0.15);
+    }
+
+    .privacy-text .badge {
+      background: var(--brand-rose);
+      color: white;
+      padding: 0.2rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .privacy-text h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .privacy-text .sub {
+      color: var(--brand-slate);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .policy-block {
+      margin: 2rem 0;
+      border-bottom: 1px solid #f0e7db;
+      padding-bottom: 2rem;
+    }
+    .policy-block:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .policy-block h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--brand-umber);
+    }
+    .policy-block p {
+      color: #2b2621;
+      margin-bottom: 0.75rem;
+    }
+    .policy-block ul {
+      list-style: none;
+      padding-left: 0.5rem;
+    }
+    .policy-block ul li {
+      padding: 0.3rem 0 0.3rem 1.5rem;
+      position: relative;
+    }
+    .policy-block ul li::before {
+      content: "▹";
+      color: var(--brand-gold);
+      position: absolute;
+      left: 0;
+    }
+
+    /* side card – quick summary */
+    .privacy-side {
+      background: #f3ede6;
+      padding: 2.5rem 2.2rem;
+      border-radius: 1.8rem 0.5rem 1.8rem 0.5rem;
+      box-shadow: var(--shadow-soft);
+      border-left: 6px solid var(--brand-gold);
+      position: sticky;
+      top: 2rem;
+    }
+    .privacy-side h3 {
+      margin-bottom: 1.5rem;
+    }
+    .privacy-side .side-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .privacy-side .side-item .emoji {
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+    .privacy-side .side-item p {
+      font-size: 0.95rem;
+      color: #2b2621;
+    }
+    .privacy-side .side-item strong {
+      color: var(--brand-umber);
+    }
+
+    .privacy-side .updated {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #dacfc4;
+      font-size: 0.85rem;
+      color: var(--brand-slate);
+    }
+
+    /* ===== FOOTER · original ===== */
+    .footer-orbit {
+      margin: 5rem 0 1.5rem;
+      padding: 3rem 2rem 1.5rem;
+      background: #1e1b17;
+      color: #dacfc4;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-orbit .brand-footer { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-gold); }
+    .footer-orbit a { color: #b8aaa0; border-bottom: 1px dotted transparent; }
+    .footer-orbit a:hover { color: #fcf9f5; border-bottom-color: var(--brand-gold); }
+    .footer-orbit .col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-orbit .col h5 { color: #f0e7db; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .privacy-grid { grid-template-columns: 1fr; }
+      .footer-orbit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-orbit { flex-direction: column; gap: 1rem; align-items: stretch; border-radius: 40px; }
+      .nav-links { justify-content: center; gap: 1.2rem; }
+      .privacy-text, .privacy-side { padding: 1.8rem; }
+      .footer-orbit { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav-orbit">
+    <div class="logo-wordmark">
+      <span>Quentra</span>
+      <span>· Pancake Ripple</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html" style="border-bottom-color: var(--brand-gold); color: var(--brand-umber);">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html">Categories</a>
+      <a href="disclamier.html">Disclaimer</a>
+    </div>
+  </nav>
+
+  <!-- ========== PRIVACY PAGE ========== -->
+  <div style="margin-bottom: 1rem;">
+    <span style="background: var(--brand-rose); color: white; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase;">your data matters</span>
+    <h1 style="margin: 0.5rem 0 0.2rem;">Privacy Policy</h1>
+    <p style="color: var(--brand-slate); font-size: 1.2rem; max-width: 700px;">How we handle your information — with the same care we use for a perfect golden-brown flip.</p>
+  </div>
+
+  <div class="privacy-grid">
+    <!-- left: full privacy text -->
+    <div class="privacy-text">
+      <span class="badge">🔒 last updated: april 2026</span>
+      <h2>Our commitment to privacy</h2>
+      <p class="sub">At Quentra · Pancake Ripple, we believe that your personal data deserves the same respect as a well‑rested batter. This policy explains what we collect, why we collect it, and how we protect it.</p>
+
+      <div class="policy-block">
+        <h3>1. Information we collect</h3>
+        <p>We may collect the following types of information when you interact with our site:</p>
+        <ul>
+          <li><strong>Contact details</strong> — name, email address, phone number (only when you voluntarily provide them via forms).</li>
+          <li><strong>Usage data</strong> — pages visited, time spent, and referral sources, collected through cookies and analytics.</li>
+          <li><strong>Device & browser</strong> — IP address, operating system, and browser type for security and performance.</li>
+        </ul>
+        <p style="margin-top: 0.6rem;">We never sell or rent your personal information to third parties.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>2. How we use your data</h3>
+        <p>Your information helps us to:</p>
+        <ul>
+          <li>Respond to inquiries and provide customer support.</li>
+          <li>Improve our content, recipes, and user experience.</li>
+          <li>Send occasional updates (only if you have opted in).</li>
+          <li>Monitor site performance and prevent fraud.</li>
+        </ul>
+        <p>We process your data based on legitimate interest and, where required, your explicit consent.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>3. Cookies & tracking</h3>
+        <p>We use minimal cookies to enhance functionality and analyze traffic. You can manage your preferences via our <a href="cookies.html" style="color: var(--brand-gold); border-bottom: 1px dotted;">Cookies Policy</a>.</p>
+        <ul>
+          <li><strong>Essential</strong> — required for basic site operation.</li>
+          <li><strong>Analytics</strong> — anonymized performance data.</li>
+          <li><strong>Preference</strong> — remember your settings.</li>
+        </ul>
+        <p>You may adjust your browser settings to refuse cookies, though this may affect some features.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>4. Data security & retention</h3>
+        <p>We implement industry-standard measures to protect your data from unauthorized access, disclosure, or alteration. Personal information is retained only as long as necessary for the purposes outlined, or as required by law.</p>
+        <ul>
+          <li>All data is encrypted in transit (SSL/TLS).</li>
+          <li>Access is restricted to authorized personnel only.</li>
+          <li>We regularly review our security practices.</li>
+        </ul>
+      </div>
+
+      <div class="policy-block">
+        <h3>5. Your rights</h3>
+        <p>You have the right to access, correct, or delete your personal data. To exercise these rights, or if you have any privacy-related questions, please contact us at <strong>privacy@quentra-pancake.com</strong>.</p>
+        <ul>
+          <li>Request a copy of your data.</li>
+          <li>Withdraw consent at any time.</li>
+          <li>Lodge a complaint with your local data protection authority.</li>
+        </ul>
+      </div>
+
+      <p style="margin-top: 1.8rem; font-size: 0.9rem; color: var(--brand-slate); border-top: 1px solid #f0e7db; padding-top: 1.5rem;">This policy may be updated occasionally. We will notify you of any material changes via our website or email.</p>
+    </div>
+
+    <!-- right: quick summary / side card -->
+    <div class="privacy-side">
+      <h3>📋 privacy snapshot</h3>
+      <div class="side-item">
+        <span class="emoji">📌</span>
+        <p><strong>Data collected:</strong> name, email, usage stats, device info.</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">🔐</span>
+        <p><strong>Security:</strong> encrypted connections, restricted access, regular audits.</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">🍪</span>
+        <p><strong>Cookies:</strong> essential, analytics, preference. Manage via <a href="cookies.html" style="color: var(--brand-umber); border-bottom: 1px dotted var(--brand-gold);">cookies policy</a>.</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">✉️</span>
+        <p><strong>Contact:</strong> privacy@quentra-pancake.com<br>or use our <a href="contact.html" style="color: var(--brand-umber); border-bottom: 1px dotted var(--brand-gold);">contact form</a>.</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">📅</span>
+        <p><strong>Effective:</strong> April 2026 · version 2.1</p>
+      </div>
+      <div class="updated">
+        ⚡ We are committed to transparency. If you have any concerns, please reach out — we're here to help.
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-orbit">
+    <div>
+      <div class="brand-footer">Quentra · Pancake Ripple</div>
+      <p style="margin-top: 0.8rem; max-width: 300px; color: #b8aaa0;">Authority blog for culinary science, technique, and the art of breakfast.</p>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col"><h5>Explore</h5><a href="#">Blog</a><a href="#">Categories</a><a href="#">Authors</a><a href="#">Archive</a></div>
+    <div class="col"><h5>Info</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+    <div class="col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a><a href="#">Sitemap</a></div>
+  </footer>
+</div>
+</body>
+</html>

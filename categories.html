@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories · Quentra Pancake Ripple</title>
+  <!-- premium typography: inter + display serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f8f5f0;
+      color: #1e1b17;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    :root {
+      --brand-umber: #4a3a2e;
+      --brand-cream: #f0e7db;
+      --brand-rose: #c99b8b;
+      --brand-gold: #ba9b6b;
+      --brand-slate: #7a6e64;
+      --brand-milk: #fcf9f5;
+      --shadow-soft: 0 20px 40px -12px rgba(30, 27, 23, 0.12);
+      --shadow-float: 0 30px 50px -20px rgba(30, 27, 23, 0.18);
+      --radius-card: 2.5rem 0.75rem 2.5rem 0.75rem;
+      --radius-btn: 100px 20px 100px 20px;
+    }
+
+    .serif { font-family: 'DM Serif Display', serif; }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 1.05; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin: 1.8rem 0 1rem; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; margin-top: 2rem; }
+    h4 { font-size: 1.35rem; }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1440px; margin: 0 auto; }
+
+    /* ===== NAVIGATION · ORIGINAL FLOATING BAR ===== */
+    .nav-orbit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      margin: 1.5rem 0 3.5rem 0;
+      background: rgba(252, 249, 245, 0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 120px 30px 120px 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 245, 235, 0.5);
+      flex-wrap: wrap;
+    }
+
+    .logo-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+    }
+    .logo-wordmark span:first-child { color: var(--brand-umber); }
+    .logo-wordmark span:last-child { color: var(--brand-gold); font-style: italic; font-size: 1.4rem; margin-left: 0.3rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--brand-slate);
+    }
+    .nav-links a { transition: color 0.2s; border-bottom: 2px solid transparent; padding-bottom: 0.2rem; }
+    .nav-links a:hover { color: var(--brand-umber); border-bottom-color: var(--brand-gold); }
+
+    .nav-cta {
+      background: var(--brand-umber);
+      color: #fcf9f5;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1px solid var(--brand-umber);
+    }
+    .nav-cta:hover { background: transparent; color: var(--brand-umber); }
+
+    /* ===== CATEGORIES PAGE · CARD GRID ===== */
+    .categories-masthead {
+      background: var(--brand-milk);
+      border-radius: var(--radius-card);
+      padding: 2.5rem 3rem;
+      box-shadow: var(--shadow-float);
+      margin-bottom: 3rem;
+      border: 1px solid rgba(186, 155, 107, 0.15);
+    }
+    .categories-masthead .badge {
+      background: var(--brand-rose);
+      color: white;
+      padding: 0.2rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .categories-masthead h1 { margin: 0.25rem 0; }
+    .categories-masthead .sub { color: var(--brand-slate); font-size: 1.1rem; max-width: 700px; }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .category-card {
+      background: #fcf9f5;
+      border-radius: 2rem 0.5rem 2rem 0.5rem;
+      padding: 2rem 1.8rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(186, 155, 107, 0.1);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .category-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-float);
+      border-color: var(--brand-gold);
+    }
+    .category-card .emoji-big {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .category-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      color: var(--brand-umber);
+    }
+    .category-card p {
+      color: var(--brand-slate);
+      font-size: 0.95rem;
+      flex: 1;
+    }
+    .category-card .tag-count {
+      margin-top: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--brand-rose);
+      letter-spacing: 0.3px;
+      border-top: 1px solid #e8dfd4;
+      padding-top: 0.8rem;
+    }
+    .category-card .explore-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: var(--brand-umber);
+      border-bottom: 2px solid var(--brand-gold);
+      align-self: flex-start;
+      transition: 0.2s;
+    }
+    .category-card .explore-link:hover {
+      color: var(--brand-rose);
+      border-bottom-color: var(--brand-rose);
+    }
+
+    /* ===== SPECIAL FEATURED CATEGORY ===== */
+    .featured-category {
+      background: #ede7de;
+      border-radius: 2.5rem 0.5rem 2.5rem 0.5rem;
+      padding: 2.5rem 3rem;
+      margin: 2rem 0 3.5rem 0;
+      border-left: 8px solid var(--brand-gold);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .featured-category .featured-text { max-width: 700px; }
+    .featured-category .featured-text h2 { margin: 0 0 0.2rem; }
+    .featured-category .featured-text p { color: #2f2821; }
+    .featured-category .featured-emoji { font-size: 4rem; margin-right: 1rem; }
+
+    /* ===== FOOTER ===== */
+    .footer-orbit {
+      margin: 5rem 0 1.5rem;
+      padding: 3rem 2rem 1.5rem;
+      background: #1e1b17;
+      color: #dacfc4;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-orbit .brand-footer { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-gold); }
+    .footer-orbit a { color: #b8aaa0; border-bottom: 1px dotted transparent; }
+    .footer-orbit a:hover { color: #fcf9f5; border-bottom-color: var(--brand-gold); }
+    .footer-orbit .col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-orbit .col h5 { color: #f0e7db; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .footer-orbit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-orbit { flex-direction: column; gap: 1rem; align-items: stretch; border-radius: 40px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+      .footer-orbit { grid-template-columns: 1fr; }
+      .categories-masthead { padding: 2rem 1.5rem; }
+      .featured-category { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; }
+      .category-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav-orbit">
+    <div class="logo-wordmark">
+      <span>Quentra</span>
+      <span>· Pancake Ripple</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html" style="border-bottom-color: var(--brand-gold);">CATEGORIES</a>
+      <a href="disclamier.html">DISCLAMIER</a>
+    </div>
+  </nav>
+
+  <!-- ========== CATEGORIES MASTHEAD ========== -->
+  <section class="categories-masthead">
+    <span class="badge">📂 browse by topic</span>
+    <h1>All Categories</h1>
+    <p class="sub">Explore our culinary world — from flipping the perfect pancake to deep‑dives into food science and breakfast culture.</p>
+  </section>
+
+  <!-- ========== FEATURED CATEGORY ========== -->
+  <div class="featured-category">
+    <div class="featured-text">
+      <span class="badge" style="background: var(--brand-gold); margin-bottom: 0.4rem;">⭐ featured</span>
+      <h2>🥞 Pancake Science</h2>
+      <p>Everything you need to know about the Maillard reaction, gluten development, and the perfect flip. Recipes, troubleshooting, and pro techniques.</p>
+    </div>
+    <div class="featured-emoji">🔬</div>
+  </div>
+
+  <!-- ========== CATEGORY GRID ========== -->
+  <div class="category-grid">
+
+    <div class="category-card">
+      <div class="emoji-big">🥞</div>
+      <h3>Pancakes</h3>
+      <p>Fluffy, thin, sourdough, gluten‑free — every pancake style you can imagine, with tips for golden perfection.</p>
+      <div class="tag-count">📄 24 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🍳</div>
+      <h3>Eggs &amp; Omelettes</h3>
+      <p>From French omelettes to the perfect sunny‑side up. Master custards, scrambles, and frittatas.</p>
+      <div class="tag-count">📄 18 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🥓</div>
+      <h3>Breakfast Meats</h3>
+      <p>Bacon, sausage, ham, and plant‑based alternatives. Curing, smoking, and crispiness hacks.</p>
+      <div class="tag-count">📄 11 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🥐</div>
+      <h3>Pastry &amp; Bread</h3>
+      <p>Croissants, brioche, biscuits, and scones. Lamination, fermentation, and buttery layers.</p>
+      <div class="tag-count">📄 19 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🧇</div>
+      <h3>Waffles</h3>
+      <p>Belgian, Liege, American, and savory waffles. Recipes, irons, and topping inspirations.</p>
+      <div class="tag-count">📄 9 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">☕</div>
+      <h3>Brews &amp; Beverages</h3>
+      <p>Coffee, tea, matcha, smoothies, and breakfast cocktails. The perfect pairing for any plate.</p>
+      <div class="tag-count">📄 14 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🌿</div>
+      <h3>Plant‑Based</h3>
+      <p>Vegan and vegetarian breakfasts. Dairy‑free, egg‑free, and packed with flavor.</p>
+      <div class="tag-count">📄 16 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🧂</div>
+      <h3>Food Science</h3>
+      <p>The how and why behind breakfast chemistry: emulsions, leavening, browning, and more.</p>
+      <div class="tag-count">📄 13 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🌍</div>
+      <h3>Global Breakfasts</h3>
+      <p>Explore morning meals from Japan, Mexico, India, the Mediterranean, and beyond.</p>
+      <div class="tag-count">📄 20 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🍯</div>
+      <h3>Syrups &amp; Spreads</h3>
+      <p>Maple, honey, fruit compotes, nut butters, and flavored butters — elevate your toast.</p>
+      <div class="tag-count">📄 8 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🧁</div>
+      <h3>Brunch Sweets</h3>
+      <p>Muffins, coffee cakes, cinnamon rolls, and donuts. Indulgent treats for leisurely mornings.</p>
+      <div class="tag-count">📄 17 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🥗</div>
+      <h3>Healthy Breakfast</h3>
+      <p>Nutrient‑dense bowls, smoothie bowls, overnight oats, and high‑protein ideas.</p>
+      <div class="tag-count">📄 15 articles</div>
+      <a href="#" class="explore-link">Explore →</a>
+    </div>
+
+  </div>
+
+  <!-- ========== CATEGORIES FOOTER NOTE ========== -->
+  <div style="background: #1e1b17; color: #f0e7db; padding: 2rem 2.5rem; border-radius: 3rem 0.5rem 3rem 0.5rem; margin: 2rem 0 4rem 0;">
+    <h3 style="color: #fcf9f5; margin-top: 0;">📌 Can’t find what you’re looking for?</h3>
+    <p style="color: #b8aaa0; max-width: 700px;">We’re always expanding our library. If you have a topic suggestion, let us know — we’d love to hear from you.</p>
+    <a href="contact.html" style="display: inline-block; margin-top: 0.8rem; color: var(--brand-gold); border-bottom: 2px solid var(--brand-gold);">Contact our editorial team →</a>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-orbit">
+    <div>
+      <div class="brand-footer">Quentra · Pancake Ripple</div>
+      <p style="margin-top: 0.8rem; max-width: 300px; color: #b8aaa0;">Authority blog for culinary science, technique, and the art of breakfast.</p>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col"><h5>Explore</h5><a href="#">Blog</a><a href="#">Categories</a><a href="#">Authors</a><a href="#">Archive</a></div>
+    <div class="col"><h5>Info</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+    <div class="col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a><a href="#">Sitemap</a></div>
+  </footer>
+</div>
+</body>
+</html>

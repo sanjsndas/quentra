@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Quentra Pancake Ripple</title>
+  <!-- premium typography: inter + display serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f8f5f0;
+      color: #1e1b17;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    :root {
+      --brand-umber: #4a3a2e;
+      --brand-cream: #f0e7db;
+      --brand-rose: #c99b8b;
+      --brand-gold: #ba9b6b;
+      --brand-slate: #7a6e64;
+      --brand-milk: #fcf9f5;
+      --shadow-soft: 0 20px 40px -12px rgba(30, 27, 23, 0.12);
+      --shadow-float: 0 30px 50px -20px rgba(30, 27, 23, 0.18);
+      --radius-card: 2.5rem 0.75rem 2.5rem 0.75rem;
+      --radius-btn: 100px 20px 100px 20px;
+    }
+
+    .serif { font-family: 'DM Serif Display', serif; }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 1.05; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; }
+    h4 { font-size: 1.35rem; }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1440px; margin: 0 auto; }
+
+    /* ===== NAVIGATION · ORIGINAL FLOATING BAR ===== */
+    .nav-orbit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      margin: 1.5rem 0 3.5rem 0;
+      background: rgba(252, 249, 245, 0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 120px 30px 120px 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 245, 235, 0.5);
+      flex-wrap: wrap;
+    }
+
+    .logo-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+    }
+    .logo-wordmark span:first-child { color: var(--brand-umber); }
+    .logo-wordmark span:last-child { color: var(--brand-gold); font-style: italic; font-size: 1.4rem; margin-left: 0.3rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--brand-slate);
+    }
+    .nav-links a { transition: color 0.2s; border-bottom: 2px solid transparent; padding-bottom: 0.2rem; }
+    .nav-links a:hover { color: var(--brand-umber); border-bottom-color: var(--brand-gold); }
+
+    .nav-cta {
+      background: var(--brand-umber);
+      color: #fcf9f5;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1px solid var(--brand-umber);
+    }
+    .nav-cta:hover { background: transparent; color: var(--brand-umber); }
+
+    /* ===== ABOUT PAGE · SPATIAL NARRATIVE ===== */
+    .about-masthead {
+      background: var(--brand-milk);
+      border-radius: var(--radius-card);
+      padding: 3rem 3rem 2.5rem;
+      box-shadow: var(--shadow-float);
+      margin-bottom: 3rem;
+      border: 1px solid rgba(186, 155, 107, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .about-masthead .badge {
+      background: var(--brand-rose);
+      color: white;
+      padding: 0.2rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      align-self: flex-start;
+    }
+    .about-masthead h1 { margin: 0.25rem 0; }
+    .about-masthead .sub { color: var(--brand-slate); font-size: 1.2rem; max-width: 700px; }
+
+    /* editorial grid for about */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 2.5rem;
+      margin: 2.5rem 0 4rem 0;
+    }
+    .about-grid .primary-text {
+      background: #f3ede6;
+      padding: 2rem 2.5rem;
+      border-radius: 2rem 0.5rem 2rem 0.5rem;
+      border-left: 6px solid var(--brand-gold);
+    }
+    .about-grid .primary-text p { margin-bottom: 1.2rem; color: #2a2520; }
+    .about-grid .primary-text h3 { margin-top: 1.5rem; }
+    .about-grid .side-note {
+      background: #eae2d7;
+      border-radius: 1.8rem 0.8rem 1.8rem 0.8rem;
+      padding: 2rem 1.8rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-grid .side-note .stat { font-size: 2.8rem; font-family: 'DM Serif Display', serif; color: var(--brand-umber); }
+    .about-grid .side-note .label { color: var(--brand-slate); font-size: 0.9rem; }
+
+    .team-section {
+      background: #1e1b17;
+      color: #f0e7db;
+      padding: 3rem 2.5rem;
+      border-radius: 4rem 0.5rem 4rem 0.5rem;
+      margin: 3rem 0 4rem 0;
+    }
+    .team-section h2 { color: #fcf9f5; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .team-card {
+      background: rgba(252, 249, 245, 0.08);
+      backdrop-filter: blur(4px);
+      padding: 1.5rem 1.5rem;
+      border-radius: 2rem 0.3rem 2rem 0.3rem;
+      border: 1px solid rgba(255, 245, 235, 0.1);
+    }
+    .team-card h4 { color: var(--brand-gold); margin-bottom: 0.2rem; }
+    .team-card .role { font-size: 0.8rem; color: var(--brand-rose); text-transform: uppercase; letter-spacing: 0.05em; }
+    .team-card p { font-size: 0.95rem; color: #dacfc4; margin-top: 0.5rem; }
+
+    .values-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 3rem;
+      margin: 2rem 0 1rem;
+      padding: 0;
+      list-style: none;
+    }
+    .values-list li { font-size: 1.1rem; display: flex; align-items: center; gap: 0.6rem; }
+    .values-list li::before { content: "◆"; color: var(--brand-gold); font-size: 0.8rem; }
+
+    .img-placeholder {
+      background: #dacfc4;
+      border-radius: 1.5rem 0.3rem 1.5rem 0.3rem;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7a6e64;
+      font-size: 0.9rem;
+      margin: 1.5rem 0;
+    }
+    .img-hero { background: #ba9b6b30; border: 1px dashed var(--brand-gold); }
+
+    /* ===== FOOTER ===== */
+    .footer-orbit {
+      margin: 5rem 0 1.5rem;
+      padding: 3rem 2rem 1.5rem;
+      background: #1e1b17;
+      color: #dacfc4;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-orbit .brand-footer { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-gold); }
+    .footer-orbit a { color: #b8aaa0; border-bottom: 1px dotted transparent; }
+    .footer-orbit a:hover { color: #fcf9f5; border-bottom-color: var(--brand-gold); }
+    .footer-orbit .col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-orbit .col h5 { color: #f0e7db; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .footer-orbit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-orbit { flex-direction: column; gap: 1rem; align-items: stretch; border-radius: 40px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+      .team-grid { grid-template-columns: 1fr; }
+      .footer-orbit { grid-template-columns: 1fr; }
+      .about-masthead { padding: 2rem 1.5rem; }
+      .about-grid .primary-text { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav-orbit">
+    <div class="logo-wordmark">
+      <span>Quentra</span>
+      <span>· Pancake Ripple</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" style="border-bottom-color: var(--brand-gold);">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html">CATEGORIES</a>
+      <a href="disclamier.html">DISCLAMIER</a>
+    </div>
+  </nav>
+
+  <!-- ========== ABOUT MASTHEAD ========== -->
+  <section class="about-masthead">
+    <span class="badge">✦ about the ripple</span>
+    <h1>Where breakfast meets science</h1>
+    <p class="sub">Quentra · Pancake Ripple is a culinary journal exploring the geometry, chemistry, and culture of pancakes. Founded in 2024, we publish long-form narratives, field guides, and visual essays.</p>
+    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem;">
+      <span style="background: #eae2d7; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.8rem;">📌 12k+ readers</span>
+      <span style="background: #eae2d7; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.8rem;">🧪 peer-reviewed</span>
+      <span style="background: #eae2d7; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.8rem;">🥞 since 2024</span>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT GRID (narrative + side facts) ========== -->
+  <div class="about-grid">
+    <div class="primary-text">
+      <h3>Our story</h3>
+      <p><strong>Quentra</strong> began as a small newsletter between food scientists and home cooks who were obsessed with one question: <em>why do some pancakes ripple and others don't?</em> That question led to batter rheology, heat transfer models, and eventually a full-blown editorial platform.</p>
+      <p>Today, we work with chefs, physicists, and historians to unpack the everyday magic of breakfast. Every article is fact-checked, peer-reviewed, and tested in real kitchens.</p>
+      <h3>What we believe</h3>
+      <ul class="values-list">
+        <li>Precision and poetry are not enemies</li>
+        <li>Good food starts with good science</li>
+        <li>Ripples are not accidental — they are intentional</li>
+        <li>Breakfast deserves deep attention</li>
+      </ul>
+      <div class="img-placeholder" style="height: 140px; background: #dacfc4; margin-top: 1.2rem;">📸 behind the scenes · batter lab</div>
+    </div>
+    <div class="side-note">
+      <div style="margin-bottom: 2rem;">
+        <div class="stat">94%</div>
+        <div class="label">reader retention rate</div>
+      </div>
+      <div style="margin-bottom: 2rem;">
+        <div class="stat">48</div>
+        <div class="label">published guides & deep-dives</div>
+      </div>
+      <div>
+        <div class="stat">12k</div>
+        <div class="label">monthly readers</div>
+      </div>
+      <div style="margin-top: 1.8rem; border-top: 2px dashed var(--brand-gold); padding-top: 1.5rem;">
+        <span style="font-size: 0.8rem; color: var(--brand-umber);">✦ “The authority on pancake science” — Food & Culture Journal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TEAM SECTION (dark background) ========== -->
+  <section class="team-section">
+    <h2>🧑‍🍳 The team</h2>
+    <p style="color: #b8aaa0; max-width: 600px; margin-top: 0.5rem;">Writers, researchers, and pancake enthusiasts who believe that every breakfast tells a story.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <h4>Eliza Quentra</h4>
+        <div class="role">Editor-in-chief</div>
+        <p>Food scientist and writer. Former pastry chef turned batter researcher.</p>
+      </div>
+      <div class="team-card">
+        <h4>Marcus Voss</h4>
+        <div class="role">senior researcher</div>
+        <p>Physicist specializing in non-Newtonian fluids. Pancake flip enthusiast.</p>
+      </div>
+      <div class="team-card">
+        <h4>Yuki Tanaka</h4>
+        <div class="role">visual editor</div>
+        <p>Photographer and illustrator. Captures the beauty of batter in motion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TIMELINE / MILESTONES ========== -->
+  <div style="margin: 3rem 0 2rem;">
+    <h2 style="font-size: 2rem;">📜 Milestones</h2>
+    <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1.5rem; padding-left: 1.5rem; border-left: 4px solid var(--brand-gold);">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: baseline;">
+        <span style="font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-rose); min-width: 90px;">2024</span>
+        <div style="background: #fcf9f5; padding: 0.8rem 1.8rem; border-radius: 1.5rem 0.3rem 1.5rem 0.3rem; box-shadow: var(--shadow-soft); flex:1;">
+          <strong>First issue</strong> — “The Ripple Effect” published.
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: baseline;">
+        <span style="font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-rose); min-width: 90px;">2025</span>
+        <div style="background: #fcf9f5; padding: 0.8rem 1.8rem; border-radius: 1.5rem 0.3rem 1.5rem 0.3rem; box-shadow: var(--shadow-soft); flex:1;">
+          <strong>Golden ratio stack</strong> — mathematical plating guide.
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: baseline;">
+        <span style="font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-rose); min-width: 90px;">2026</span>
+        <div style="background: #fcf9f5; padding: 0.8rem 1.8rem; border-radius: 1.5rem 0.3rem 1.5rem 0.3rem; box-shadow: var(--shadow-soft); flex:1;">
+          <strong>AI flip predictor</strong> — computer vision project launched.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-orbit">
+    <div>
+      <div class="brand-footer">Quentra · Pancake Ripple</div>
+      <p style="margin-top: 0.8rem; max-width: 300px; color: #b8aaa0;">Authority blog for culinary science, technique, and the art of breakfast.</p>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col"><h5>Explore</h5><a href="#">Blog</a><a href="#">Categories</a><a href="#">Authors</a><a href="#">Archive</a></div>
+    <div class="col"><h5>Info</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+    <div class="col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a><a href="#">Sitemap</a></div>
+  </footer>
+</div>
+</body>
+</html>

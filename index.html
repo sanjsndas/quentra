@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quentra · Pancake Ripple</title>
+  <!-- premium typography: inter + display serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f8f5f0;
+      color: #1e1b17;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    /* brand identity · quentra pancake ripple */
+    :root {
+      --brand-umber: #4a3a2e;
+      --brand-cream: #f0e7db;
+      --brand-rose: #c99b8b;
+      --brand-gold: #ba9b6b;
+      --brand-slate: #7a6e64;
+      --brand-milk: #fcf9f5;
+      --shadow-soft: 0 20px 40px -12px rgba(30, 27, 23, 0.12);
+      --shadow-float: 0 30px 50px -20px rgba(30, 27, 23, 0.18);
+      --radius-card: 2.5rem 0.75rem 2.5rem 0.75rem;
+      --radius-btn: 100px 20px 100px 20px;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    .serif { font-family: 'DM Serif Display', serif; }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 1.05; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; }
+    h4 { font-size: 1.35rem; }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1440px; margin: 0 auto; }
+
+    /* ===== NAVIGATION · ORIGINAL FLOATING BAR ===== */
+    .nav-orbit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      margin: 1.5rem 0 3.5rem 0;
+      background: rgba(252, 249, 245, 0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 120px 30px 120px 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 245, 235, 0.5);
+      flex-wrap: wrap;
+    }
+
+    .logo-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+    }
+    .logo-wordmark span:first-child { color: var(--brand-umber); }
+    .logo-wordmark span:last-child { color: var(--brand-gold); font-style: italic; font-size: 1.4rem; margin-left: 0.3rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--brand-slate);
+    }
+    .nav-links a { transition: color 0.2s; border-bottom: 2px solid transparent; padding-bottom: 0.2rem; }
+    .nav-links a:hover { color: var(--brand-umber); border-bottom-color: var(--brand-gold); }
+
+    .nav-cta {
+      background: var(--brand-umber);
+      color: #fcf9f5;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1px solid var(--brand-umber);
+    }
+    .nav-cta:hover { background: transparent; color: var(--brand-umber); }
+
+    /* ===== HOMEPAGE · SPATIAL NARRATIVE LAYOUT ===== */
+    /* SECTION 1 · editorial mosaic */
+    .editorial-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin: 3rem 0 5rem 0;
+    }
+    .mosaic-primary {
+      grid-row: span 2;
+      background: var(--brand-milk);
+      border-radius: var(--radius-card);
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      box-shadow: var(--shadow-float);
+      border: 1px solid rgba(186, 155, 107, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .mosaic-primary .badge {
+      background: var(--brand-rose);
+      color: white;
+      padding: 0.2rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-bottom: 1rem;
+    }
+    .mosaic-primary h2 { margin: 0.5rem 0 0.8rem 0; }
+    .mosaic-primary .excerpt { color: var(--brand-slate); max-width: 90%; }
+    .mosaic-secondary {
+      background: #f3ede6;
+      border-radius: 1.8rem 0.8rem 1.8rem 0.8rem;
+      padding: 1.8rem 2rem;
+      box-shadow: var(--shadow-soft);
+      border-left: 6px solid var(--brand-gold);
+    }
+    .mosaic-secondary h3 { font-size: 1.6rem; }
+    .mosaic-secondary .meta { font-size: 0.8rem; color: var(--brand-slate); margin-top: 0.8rem; }
+
+    /* SECTION 2 · floating knowledge cards (different spacing, bg) */
+    .knowledge-ripple {
+      background: #eae2d7;
+      padding: 3.5rem 2.5rem;
+      border-radius: 4rem 0.5rem 4rem 0.5rem;
+      margin: 3rem 0 5rem 0;
+    }
+    .knowledge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .float-card {
+      background: rgba(252, 249, 245, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 2rem 1.8rem;
+      border-radius: 2rem 0.5rem 2rem 0.5rem;
+      box-shadow: 0 15px 30px -10px rgba(30, 27, 23, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.3s;
+      border: 1px solid rgba(255, 245, 235, 0.6);
+    }
+    .float-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-float); }
+    .float-card .topic { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-rose); }
+    .float-card h4 { margin: 0.5rem 0 0.3rem; }
+    .float-card p { font-size: 0.9rem; color: var(--brand-slate); }
+
+    /* SECTION 3 · timeline narrative (different alignment) */
+    .timeline-narrative {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin: 4rem 0 4rem 0;
+      padding-left: 2rem;
+      border-left: 4px solid var(--brand-gold);
+    }
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      background: transparent;
+      padding: 0.5rem 0;
+    }
+    .timeline-item .year {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--brand-rose);
+      min-width: 80px;
+      line-height: 1;
+    }
+    .timeline-item .content { background: #fcf9f5; padding: 1.2rem 2rem; border-radius: 1.5rem 0.3rem 1.5rem 0.3rem; box-shadow: var(--shadow-soft); width: 100%; }
+
+    /* SECTION 4 · split spotlight (different bg + radius) */
+    .split-spotlight {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      background: #1e1b17;
+      color: #f0e7db;
+      padding: 3rem 3rem;
+      border-radius: 5rem 1rem 5rem 1rem;
+      margin: 4rem 0;
+      align-items: center;
+    }
+    .split-spotlight h2 { color: #fcf9f5; }
+    .split-spotlight .lead { color: #c99b8b; font-size: 1.1rem; margin-top: 1rem; }
+    .split-spotlight .stat-grid { display: flex; gap: 2rem; margin-top: 1.5rem; }
+    .stat-item { border-right: 1px solid rgba(255,255,255,0.1); padding-right: 1.5rem; }
+    .stat-item:last-child { border: none; }
+    .stat-item .num { font-size: 2.5rem; font-family: 'DM Serif Display', serif; color: var(--brand-gold); }
+
+    /* ===== ARTICLE PAGE (long form) ===== */
+    .article-hero {
+      padding: 2rem 0 1rem;
+      border-bottom: 2px dashed #dacfc4;
+      margin-bottom: 2.5rem;
+    }
+    .article-body {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fcf9f5;
+      padding: 3rem 3.5rem;
+      border-radius: 2rem 0.5rem 2rem 0.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+    .article-body h2 { margin: 2.5rem 0 0.8rem; }
+    .article-body h3 { margin: 1.8rem 0 0.5rem; font-weight: 400; color: var(--brand-umber); }
+    .article-body p { margin-bottom: 1.2rem; color: #2a2520; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: #f3ede6; border-radius: 20px; overflow: hidden; }
+    .article-body th { background: var(--brand-umber); color: white; padding: 0.8rem 1rem; text-align: left; }
+    .article-body td { padding: 0.8rem 1rem; border-bottom: 1px solid #e2d7cb; }
+    .article-body ul, .article-body ol { margin: 1rem 0 1.5rem 2rem; }
+    .article-body .faq-item { background: #f3ede6; padding: 1rem 1.8rem; border-radius: 1rem; margin: 1rem 0; }
+
+    /* ===== FOOTER · original ===== */
+    .footer-orbit {
+      margin: 5rem 0 1.5rem;
+      padding: 3rem 2rem 1.5rem;
+      background: #1e1b17;
+      color: #dacfc4;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-orbit .brand-footer { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-gold); }
+    .footer-orbit a { color: #b8aaa0; border-bottom: 1px dotted transparent; }
+    .footer-orbit a:hover { color: #fcf9f5; border-bottom-color: var(--brand-gold); }
+    .footer-orbit .col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-orbit .col h5 { color: #f0e7db; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .editorial-mosaic { grid-template-columns: 1fr; }
+      .knowledge-grid { grid-template-columns: 1fr 1fr; }
+      .split-spotlight { grid-template-columns: 1fr; }
+      .footer-orbit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-orbit { flex-direction: column; gap: 1rem; align-items: stretch; border-radius: 40px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+      .knowledge-grid { grid-template-columns: 1fr; }
+      .timeline-item { flex-direction: column; gap: 0.3rem; }
+      .footer-orbit { grid-template-columns: 1fr; }
+      .article-body { padding: 1.5rem; }
+    }
+
+    /* utilities & extras */
+    .img-placeholder {
+      background: #dacfc4;
+      border-radius: 1.5rem 0.3rem 1.5rem 0.3rem;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7a6e64;
+      font-size: 0.9rem;
+      margin: 1.5rem 0;
+    }
+    .img-hero { background: #ba9b6b30; border: 1px dashed var(--brand-gold); }
+    .btn-outline { border: 2px solid var(--brand-umber); padding: 0.5rem 2rem; border-radius: var(--radius-btn); transition: 0.2s; }
+    .btn-outline:hover { background: var(--brand-umber); color: white; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav-orbit">
+    <div class="logo-wordmark">
+      <span>Quentra</span>
+      <span>· Pancake Ripple</span>
+    </div>
+    <div class="nav-links">
+      <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li>
+					 <li><a href="categories.html">CATEGORIES</a></li>
+					<li><a href="disclamier.html">DISCLAMIER</a></li>
+  </nav>
+
+  <!-- ========== HOMEPAGE · SPATIAL NARRATIVE ========== -->
+  <!-- editorial mosaic -->
+  <section class="editorial-mosaic">
+    <div class="mosaic-primary">
+      <span class="badge">featured narrative</span>
+      <h2>Pancake Ripple: the geometry of breakfast</h2>
+      <p class="excerpt">A deep exploration of batter dynamics, golden ratio, and the art of the perfect flip. 2800 words of culinary physics.</p>
+      <div style="margin-top: 1.8rem; display: flex; gap: 1rem; align-items: center;">
+        <span style="font-size: 0.8rem; color: var(--brand-slate);">by Eliza Quentra · 12 min read</span>
+        <span style="background: var(--brand-gold); width: 8px; height: 8px; border-radius: 50%;"></span>
+        <span style="font-size: 0.7rem; background: #eae2d7; padding: 0.1rem 0.9rem; border-radius: 50px;">#culinary</span>
+      </div>
+      <div class="img-placeholder img-hero" style="margin-top: 1.2rem;">🥞 hero image · pancake ripple</div>
+    </div>
+    <div class="mosaic-secondary">
+      <span style="font-size: 0.7rem; color: var(--brand-rose); text-transform: uppercase;">deep dive</span>
+      <h3>Buttermilk vs. Kefir</h3>
+      <p style="color: #3d352c; margin: 0.5rem 0;">A comparative analysis of acidity and texture in batters.</p>
+      <div class="meta">📊 infographic + comparison table</div>
+    </div>
+    <div class="mosaic-secondary" style="border-left-color: var(--brand-rose);">
+      <span style="font-size: 0.7rem; color: var(--brand-rose); text-transform: uppercase;">guide</span>
+      <h3>5 mistakes that ruin your ripple</h3>
+      <p style="color: #3d352c; margin: 0.5rem 0;">From overmixing to heat management — fix them all.</p>
+      <div class="meta">👨‍🍳 step-by-step · 1500 words</div>
+    </div>
+  </section>
+
+  <!-- knowledge ripple (different bg, card style) -->
+  <section class="knowledge-ripple">
+    <h2 style="color: #1e1b17;">🍳 knowledge hub</h2>
+    <div class="knowledge-grid">
+      <div class="float-card">
+        <div class="topic">chemistry</div>
+        <h4>Maillard & caramel</h4>
+        <p>How heat transforms batter into golden-brown art. 2400 word deep dive.</p>
+        <span style="display: inline-block; margin-top: 1rem; background: var(--brand-umber); color: white; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.7rem;">read</span>
+      </div>
+      <div class="float-card">
+        <div class="topic">technique</div>
+        <h4>The perfect flip</h4>
+        <p>Physics of wrist motion, pan angle, and timing. With high-speed analysis.</p>
+        <span style="display: inline-block; margin-top: 1rem; background: var(--brand-umber); color: white; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.7rem;">read</span>
+      </div>
+      <div class="float-card">
+        <div class="topic">history</div>
+        <h4>Pancakes through ages</h4>
+        <p>From ancient Greece to modern brunch culture — a timeline.</p>
+        <span style="display: inline-block; margin-top: 1rem; background: var(--brand-umber); color: white; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.7rem;">read</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- timeline narrative (different alignment) -->
+  <div class="timeline-narrative">
+    <div class="timeline-item">
+      <div class="year">2024</div>
+      <div class="content"><h4>Ripple effect: new batter viscosity model</h4><p>Published in collaboration with food science lab. 1800 words.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2025</div>
+      <div class="content"><h4>Golden ratio pancake stack</h4><p>Mathematical approach to plating and portion control.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2026</div>
+      <div class="content"><h4>AI-assisted flip prediction</h4><p>Using computer vision to perfect the toss. Early results.</p></div>
+    </div>
+  </div>
+
+  <!-- split spotlight (dark bg) -->
+  <div class="split-spotlight">
+    <div>
+      <h2>Pancake ripple · the authority</h2>
+      <p class="lead">Over 12,000 readers trust our research-backed culinary deep-dives.</p>
+      <div class="stat-grid">
+        <div class="stat-item"><div class="num">94%</div><div>accuracy rate</div></div>
+        <div class="stat-item"><div class="num">48</div><div>peer-reviewed guides</div></div>
+      </div>
+      <a href="#" style="display: inline-block; margin-top: 2rem; background: var(--brand-gold); color: #1e1b17; padding: 0.6rem 2.5rem; border-radius: var(--radius-btn); font-weight: 600;">explore archive</a>
+    </div>
+    <div class="img-placeholder" style="height: 200px; background: #3d352c; color: #dacfc4;">📊 infographic · ripple dynamics</div>
+  </div>
+
+  <!-- ========== LONG-FORM ARTICLE (example) ========== -->
+  <div style="margin: 5rem 0 2rem;"><hr style="border: 1px dashed #dacfc4;"></div>
+  <div class="article-hero">
+    <h1 style="font-size: clamp(2.5rem, 6vw, 4rem);">The Science of Pancake Ripple</h1>
+    <p style="color: var(--brand-slate); font-size: 1.1rem;">A 3200-word investigation into batter rheology, heat transfer, and the elusive perfect ring.</p>
+  </div>
+
+  <div class="article-body">
+    <p><strong>Pancake ripple</strong> — that hypnotic pattern of concentric rings — is not accidental. It is the result of surface tension, viscosity, and thermal gradient. In this guide, we break down the physics, share pro tips, and reveal common mistakes.</p>
+    <h2>Understanding the batter</h2>
+    <p>Batter is a non-Newtonian fluid. Its viscosity changes with shear rate. When you pour, the initial high shear thins the batter, creating the first wide ring. As it spreads, viscosity increases, forming the inner ripples.</p>
+    <table>
+      <tr><th>Factor</th><th>Effect on ripple</th></tr>
+      <tr><td>Hydration ratio</td><td>Higher water → thinner batter → wider rings</td></tr>
+      <tr><td>Fat content</td><td>Butter/oil → shorter, more defined ripples</td></tr>
+      <tr><td>Resting time</td><td>30 min rest → smoother, more uniform rings</td></tr>
+    </table>
+    <h3>Step-by-step to perfect ripple</h3>
+    <ol>
+      <li>Mix dry ingredients thoroughly.</li>
+      <li>Combine wet, then fold into dry (15 strokes max).</li>
+      <li>Rest for 15 minutes.</li>
+      <li>Heat pan to 375°F (190°C).</li>
+      <li>Pour from height of 8 inches in a single spiral.</li>
+    </ol>
+    <div class="img-placeholder" style="height: 160px; background: #eae2d7;">🍳 category image · batter consistency</div>
+    <h2>Common mistakes</h2>
+    <ul>
+      <li><strong>Overmixing</strong> — develops gluten, ruins ripple.</li>
+      <li><strong>Pan too hot</strong> — outer ring sets before inner forms.</li>
+      <li><strong>Inconsistent pour</strong> — breaks the concentric pattern.</li>
+    </ul>
+    <h3>Expert advice from chef Marlow</h3>
+    <p>“The key is to pour in one fluid motion, starting from the center and moving outward in a tight spiral. It’s a wrist movement, not an arm movement.”</p>
+    <div class="faq-item"><strong>Q: Can I use buttermilk?</strong><br>A: Yes, buttermilk increases acidity, which tenderizes gluten and enhances ring definition.</div>
+    <div class="faq-item"><strong>Q: Why do my pancakes have no ripple?</strong><br>A: Most likely overmixing or batter too thin. Adjust hydration.</div>
+    <h2>Comparison: classic vs. ripple-optimized</h2>
+    <table>
+      <tr><th>Property</th><th>Classic</th><th>Ripple-optimized</th></tr>
+      <tr><td>Hydration</td><td>100% milk</td><td>85% milk + 15% water</td></tr>
+      <tr><td>Mixing</td><td>30 strokes</td><td>12 strokes</td></tr>
+      <tr><td>Rest</td><td>none</td><td>20 min</td></tr>
+    </table>
+    <p style="margin-top: 2rem;">Master the ripple, and you master the pancake. For more, explore our <a href="#" style="border-bottom: 2px solid var(--brand-gold);">full archive</a>.</p>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-orbit">
+    <div>
+      <div class="brand-footer">Quentra · Pancake Ripple</div>
+      <p style="margin-top: 0.8rem; max-width: 300px; color: #b8aaa0;">Authority blog for culinary science, technique, and the art of breakfast.</p>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col"><h5>Explore</h5><a href="#">Blog</a><a href="#">Categories</a><a href="#">Authors</a><a href="#">Archive</a></div>
+    <div class="col"><h5>Info</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+    <div class="col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a><a href="#">Sitemap</a></div>
+  </footer>
+</div>
+</body>
+</html>

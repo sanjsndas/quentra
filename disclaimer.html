@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer · Quentra Pancake Ripple</title>
+  <!-- premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f8f5f0;
+      color: #1e1b17;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    :root {
+      --brand-umber: #4a3a2e;
+      --brand-cream: #f0e7db;
+      --brand-rose: #c99b8b;
+      --brand-gold: #ba9b6b;
+      --brand-slate: #7a6e64;
+      --brand-milk: #fcf9f5;
+      --shadow-soft: 0 20px 40px -12px rgba(30, 27, 23, 0.12);
+      --shadow-float: 0 30px 50px -20px rgba(30, 27, 23, 0.18);
+      --radius-card: 2.5rem 0.75rem 2.5rem 0.75rem;
+      --radius-btn: 100px 20px 100px 20px;
+    }
+
+    .serif { font-family: 'DM Serif Display', serif; }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 1.05; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; }
+    h4 { font-size: 1.35rem; }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1440px; margin: 0 auto; }
+
+    /* ===== NAVIGATION · ORIGINAL FLOATING BAR ===== */
+    .nav-orbit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      margin: 1.5rem 0 3.5rem 0;
+      background: rgba(252, 249, 245, 0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 120px 30px 120px 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 245, 235, 0.5);
+      flex-wrap: wrap;
+    }
+
+    .logo-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+    }
+    .logo-wordmark span:first-child { color: var(--brand-umber); }
+    .logo-wordmark span:last-child { color: var(--brand-gold); font-style: italic; font-size: 1.4rem; margin-left: 0.3rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--brand-slate);
+      flex-wrap: wrap;
+    }
+    .nav-links a { transition: color 0.2s; border-bottom: 2px solid transparent; padding-bottom: 0.2rem; }
+    .nav-links a:hover { color: var(--brand-umber); border-bottom-color: var(--brand-gold); }
+    .nav-links a.active-disclaimer {
+      border-bottom-color: var(--brand-gold);
+      color: var(--brand-umber);
+    }
+
+    .nav-cta {
+      background: var(--brand-umber);
+      color: #fcf9f5;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1px solid var(--brand-umber);
+    }
+    .nav-cta:hover { background: transparent; color: var(--brand-umber); }
+
+    /* ===== DISCLAIMER PAGE SPECIFIC ===== */
+    .disclaimer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2rem 0 5rem 0;
+      align-items: start;
+    }
+
+    .disclaimer-text {
+      background: var(--brand-milk);
+      padding: 2.5rem 2.8rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-float);
+      border: 1px solid rgba(186, 155, 107, 0.15);
+    }
+
+    .disclaimer-text .badge {
+      background: var(--brand-rose);
+      color: white;
+      padding: 0.2rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .disclaimer-text h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .disclaimer-text .sub {
+      color: var(--brand-slate);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .disclaimer-block {
+      margin: 2rem 0;
+      border-bottom: 1px solid #f0e7db;
+      padding-bottom: 2rem;
+    }
+    .disclaimer-block:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .disclaimer-block h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--brand-umber);
+    }
+    .disclaimer-block p {
+      color: #2b2621;
+      margin-bottom: 0.75rem;
+    }
+    .disclaimer-block ul {
+      list-style: none;
+      padding-left: 0.5rem;
+    }
+    .disclaimer-block ul li {
+      padding: 0.3rem 0 0.3rem 1.5rem;
+      position: relative;
+    }
+    .disclaimer-block ul li::before {
+      content: "▹";
+      color: var(--brand-gold);
+      position: absolute;
+      left: 0;
+    }
+
+    .disclaimer-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 0.5rem;
+      font-size: 0.95rem;
+    }
+    .disclaimer-table th {
+      text-align: left;
+      background: #f0e7db;
+      padding: 0.6rem 0.8rem;
+      font-weight: 600;
+      color: var(--brand-umber);
+    }
+    .disclaimer-table td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid #f0e7db;
+    }
+    .disclaimer-table tr:last-child td { border-bottom: none; }
+
+    /* side card – quick summary */
+    .disclaimer-side {
+      background: #f3ede6;
+      padding: 2.5rem 2.2rem;
+      border-radius: 1.8rem 0.5rem 1.8rem 0.5rem;
+      box-shadow: var(--shadow-soft);
+      border-left: 6px solid var(--brand-gold);
+      position: sticky;
+      top: 2rem;
+    }
+    .disclaimer-side h3 {
+      margin-bottom: 1.5rem;
+    }
+    .disclaimer-side .side-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .disclaimer-side .side-item .emoji {
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+    .disclaimer-side .side-item p {
+      font-size: 0.95rem;
+      color: #2b2621;
+    }
+    .disclaimer-side .side-item strong {
+      color: var(--brand-umber);
+    }
+
+    .disclaimer-side .updated {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #dacfc4;
+      font-size: 0.85rem;
+      color: var(--brand-slate);
+    }
+
+    /* ===== FOOTER · original ===== */
+    .footer-orbit {
+      margin: 5rem 0 1.5rem;
+      padding: 3rem 2rem 1.5rem;
+      background: #1e1b17;
+      color: #dacfc4;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-orbit .brand-footer { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-gold); }
+    .footer-orbit a { color: #b8aaa0; border-bottom: 1px dotted transparent; }
+    .footer-orbit a:hover { color: #fcf9f5; border-bottom-color: var(--brand-gold); }
+    .footer-orbit .col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-orbit .col h5 { color: #f0e7db; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .disclaimer-grid { grid-template-columns: 1fr; }
+      .footer-orbit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-orbit { flex-direction: column; gap: 1rem; align-items: stretch; border-radius: 40px; }
+      .nav-links { justify-content: center; gap: 1.2rem; }
+      .disclaimer-text, .disclaimer-side { padding: 1.8rem; }
+      .footer-orbit { grid-template-columns: 1fr; }
+      .disclaimer-table { font-size: 0.8rem; }
+      .disclaimer-table th, .disclaimer-table td { padding: 0.4rem 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav-orbit">
+    <div class="logo-wordmark">
+      <span>Quentra</span>
+      <span>· Pancake Ripple</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html">Categories</a>
+      <a href="disclamier.html" class="active-disclaimer">Disclaimer</a>
+    </div>
+  </nav>
+
+  <!-- ========== DISCLAIMER PAGE ========== -->
+  <div style="margin-bottom: 1rem;">
+    <span style="background: var(--brand-rose); color: white; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase;">⚖️ legal crumb</span>
+    <h1 style="margin: 0.5rem 0 0.2rem;">Disclaimer</h1>
+    <p style="color: var(--brand-slate); font-size: 1.2rem; max-width: 700px;">Our commitment to transparency, accuracy, and the pursuit of perfect pancakes — with a side of clarity.</p>
+  </div>
+
+  <div class="disclaimer-grid">
+    <!-- left: full disclaimer text -->
+    <div class="disclaimer-text">
+      <span class="badge">📅 last updated: april 2026</span>
+      <h2>General information</h2>
+      <p class="sub">Quentra · Pancake Ripple is a blog dedicated to culinary exploration, technique, and the joy of breakfast. The content we share is for informational and entertainment purposes only.</p>
+
+      <div class="disclaimer-block">
+        <h3>1. No professional advice</h3>
+        <p>All recipes, techniques, and opinions expressed on this site are based on personal experience and research. They are not intended as professional culinary, nutritional, or medical advice. Always consult a qualified professional for specific dietary concerns or health conditions.</p>
+      </div>
+
+      <div class="disclaimer-block">
+        <h3>2. Accuracy & completeness</h3>
+        <p>We strive to ensure that all information is accurate and up-to-date. However, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or availability of any content. Use the information at your own discretion.</p>
+        <ul>
+          <li>Ingredients and measurements may vary based on region and product availability.</li>
+          <li>We recommend testing recipes in small batches before adapting for larger use.</li>
+        </ul>
+      </div>
+
+      <div class="disclaimer-block">
+        <h3>3. External links</h3>
+        <p>Our site may contain links to third-party websites. These links are provided for your convenience and do not signify our endorsement of the content. We have no control over and assume no responsibility for the practices or content of any external sites.</p>
+      </div>
+
+      <div class="disclaimer-block">
+        <h3>4. Affiliate & advertising disclosure</h3>
+        <p>In the spirit of full transparency, we sometimes include affiliate links or partner with brands we genuinely love. If you purchase through these links, we may earn a small commission at no extra cost to you. This helps us continue creating delicious content.</p>
+        <ul>
+          <li>We only recommend products we have tested and believe in.</li>
+          <li>Sponsored content is clearly marked as such.</li>
+        </ul>
+      </div>
+
+      <div class="disclaimer-block">
+        <h3>5. Liability</h3>
+        <p>Under no circumstances shall Quentra · Pancake Ripple be liable for any loss or damage arising from the use of this website or reliance on any information provided. Your use of the site is at your own risk.</p>
+      </div>
+
+      <p style="margin-top: 1.8rem; font-size: 0.9rem; color: var(--brand-slate); border-top: 1px solid #f0e7db; padding-top: 1.5rem;">If you have any questions regarding this disclaimer, please reach out to <strong>legal@quentra-pancake.com</strong>.</p>
+    </div>
+
+    <!-- right: quick summary / side card -->
+    <div class="disclaimer-side">
+      <h3>⚖️ quick disclaimer</h3>
+      <div class="side-item">
+        <span class="emoji">📝</span>
+        <p><strong>Informational only:</strong> content is for general knowledge and enjoyment.</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">🔍</span>
+        <p><strong>Not professional advice:</strong> consult experts for dietary or health matters.</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">🔗</span>
+        <p><strong>External links:</strong> we are not responsible for third-party content.</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">🛍️</span>
+        <p><strong>Affiliate disclosure:</strong> we may earn a commission from recommended products.</p>
+      </div>
+      <div class="side-item">
+        <span class="emoji">🛡️</span>
+        <p><strong>No liability:</strong> use of this site is at your own risk.</p>
+      </div>
+      <div class="updated">
+        🥞 We believe in honest, delicious storytelling. Our disclaimer ensures you enjoy our content with confidence.
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-orbit">
+    <div>
+      <div class="brand-footer">Quentra · Pancake Ripple</div>
+      <p style="margin-top: 0.8rem; max-width: 300px; color: #b8aaa0;">Authority blog for culinary science, technique, and the art of breakfast.</p>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col"><h5>Explore</h5><a href="#">Blog</a><a href="#">Categories</a><a href="#">Authors</a><a href="#">Archive</a></div>
+    <div class="col"><h5>Info</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+    <div class="col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#" class="active-disclaimer">Disclaimer</a><a href="#">Sitemap</a></div>
+  </footer>
+</div>
+</body>
+</html>

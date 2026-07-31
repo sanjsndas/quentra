@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact · Quentra Pancake Ripple</title>
+  <!-- premium typography: inter + display serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f8f5f0;
+      color: #1e1b17;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    /* brand identity · quentra pancake ripple */
+    :root {
+      --brand-umber: #4a3a2e;
+      --brand-cream: #f0e7db;
+      --brand-rose: #c99b8b;
+      --brand-gold: #ba9b6b;
+      --brand-slate: #7a6e64;
+      --brand-milk: #fcf9f5;
+      --shadow-soft: 0 20px 40px -12px rgba(30, 27, 23, 0.12);
+      --shadow-float: 0 30px 50px -20px rgba(30, 27, 23, 0.18);
+      --radius-card: 2.5rem 0.75rem 2.5rem 0.75rem;
+      --radius-btn: 100px 20px 100px 20px;
+    }
+
+    .serif { font-family: 'DM Serif Display', serif; }
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 1.05; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; }
+    h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; }
+    h4 { font-size: 1.35rem; }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1440px; margin: 0 auto; }
+
+    /* ===== NAVIGATION · ORIGINAL FLOATING BAR ===== */
+    .nav-orbit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      margin: 1.5rem 0 3.5rem 0;
+      background: rgba(252, 249, 245, 0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 120px 30px 120px 30px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 245, 235, 0.5);
+      flex-wrap: wrap;
+    }
+
+    .logo-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+    }
+    .logo-wordmark span:first-child { color: var(--brand-umber); }
+    .logo-wordmark span:last-child { color: var(--brand-gold); font-style: italic; font-size: 1.4rem; margin-left: 0.3rem; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--brand-slate);
+    }
+    .nav-links a { transition: color 0.2s; border-bottom: 2px solid transparent; padding-bottom: 0.2rem; }
+    .nav-links a:hover { color: var(--brand-umber); border-bottom-color: var(--brand-gold); }
+
+    .nav-cta {
+      background: var(--brand-umber);
+      color: #fcf9f5;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+      border: 1px solid var(--brand-umber);
+    }
+    .nav-cta:hover { background: transparent; color: var(--brand-umber); }
+
+    /* ===== CONTACT PAGE SPECIFIC ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2rem 0 5rem 0;
+      align-items: start;
+    }
+
+    .contact-info {
+      background: var(--brand-milk);
+      padding: 2.5rem 2.8rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-float);
+      border: 1px solid rgba(186, 155, 107, 0.15);
+    }
+
+    .contact-info .badge {
+      background: var(--brand-rose);
+      color: white;
+      padding: 0.2rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info .sub {
+      color: var(--brand-slate);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin: 1.8rem 0;
+      border-bottom: 1px solid #f0e7db;
+      padding-bottom: 1.8rem;
+    }
+    .contact-detail:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .contact-detail .icon {
+      font-size: 2rem;
+      width: 3rem;
+      text-align: center;
+    }
+    .contact-detail .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--brand-slate);
+    }
+    .contact-detail .value {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 2.2rem;
+      flex-wrap: wrap;
+    }
+    .social-row a {
+      background: #f0e7db;
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px 20px 100px 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.2s;
+      border: 1px solid transparent;
+    }
+    .social-row a:hover {
+      background: var(--brand-umber);
+      color: white;
+      border-color: var(--brand-umber);
+    }
+
+    /* form card */
+    .contact-form-card {
+      background: #f3ede6;
+      padding: 2.5rem 2.8rem;
+      border-radius: 1.8rem 0.5rem 1.8rem 0.5rem;
+      box-shadow: var(--shadow-soft);
+      border-left: 6px solid var(--brand-gold);
+    }
+
+    .contact-form-card h3 {
+      margin-bottom: 0.5rem;
+    }
+    .contact-form-card .form-desc {
+      color: var(--brand-slate);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      color: var(--brand-umber);
+      margin-bottom: 0.3rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      background: white;
+      border: 1px solid #e2d7cb;
+      border-radius: 1.2rem 0.3rem 1.2rem 0.3rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: 0.2s;
+      color: #1e1b17;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--brand-gold);
+      box-shadow: 0 0 0 3px rgba(186, 155, 107, 0.2);
+    }
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      background: var(--brand-umber);
+      color: white;
+      border: none;
+      padding: 0.9rem 3rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: 1px solid var(--brand-umber);
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+    .btn-submit:hover {
+      background: transparent;
+      color: var(--brand-umber);
+    }
+
+    /* map / extra section */
+    .contact-map {
+      grid-column: 1 / -1;
+      background: #eae2d7;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .contact-map .map-pin {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.1rem;
+    }
+    .contact-map .map-pin span:first-child {
+      font-size: 2.2rem;
+    }
+    .img-placeholder {
+      background: #dacfc4;
+      border-radius: 1.5rem 0.3rem 1.5rem 0.3rem;
+      height: 120px;
+      flex: 2;
+      min-width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7a6e64;
+      font-size: 0.9rem;
+      border: 1px dashed var(--brand-gold);
+    }
+
+    /* ===== FOOTER · original ===== */
+    .footer-orbit {
+      margin: 5rem 0 1.5rem;
+      padding: 3rem 2rem 1.5rem;
+      background: #1e1b17;
+      color: #dacfc4;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-orbit .brand-footer { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--brand-gold); }
+    .footer-orbit a { color: #b8aaa0; border-bottom: 1px dotted transparent; }
+    .footer-orbit a:hover { color: #fcf9f5; border-bottom-color: var(--brand-gold); }
+    .footer-orbit .col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-orbit .col h5 { color: #f0e7db; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-orbit { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-orbit { flex-direction: column; gap: 1rem; align-items: stretch; border-radius: 40px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+      .contact-info, .contact-form-card { padding: 1.8rem; }
+      .footer-orbit { grid-template-columns: 1fr; }
+      .contact-map { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav-orbit">
+    <div class="logo-wordmark">
+      <span>Quentra</span>
+      <span>· Pancake Ripple</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" style="border-bottom-color: var(--brand-gold); color: var(--brand-umber);">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html">Categories</a>
+      <a href="disclamier.html">Disclaimer</a>
+    </div>
+  </nav>
+
+  <!-- ========== CONTACT PAGE ========== -->
+  <div style="margin-bottom: 1rem;">
+    <span style="background: var(--brand-rose); color: white; padding: 0.2rem 1.2rem; border-radius: 50px; font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase;">connect</span>
+    <h1 style="margin: 0.5rem 0 0.2rem;">Let’s talk pancake</h1>
+    <p style="color: var(--brand-slate); font-size: 1.2rem; max-width: 600px;">Questions, collaborations, or just want to share your ripple? Reach out — we reply within a flap.</p>
+  </div>
+
+  <div class="contact-grid">
+    <!-- left: contact info -->
+    <div class="contact-info">
+      <span class="badge">📍 kitchen base</span>
+      <h2>Quentra HQ</h2>
+      <p class="sub">We’re a small team of culinary scientists, writers, and breakfast enthusiasts.</p>
+
+      <div class="contact-detail">
+        <div class="icon">📬</div>
+        <div><div class="label">email</div><div class="value">hello@quentra-pancake.com</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📞</div>
+        <div><div class="label">phone</div><div class="value">+1 (800) 555‑0199</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📍</div>
+        <div><div class="label">address</div><div class="value">42 Batter Lane, Brunchville, NY 10001</div></div>
+      </div>
+
+      <div class="social-row">
+        <a href="#">Instagram</a>
+        <a href="#">X</a>
+        <a href="#">YouTube</a>
+        <a href="#">Substack</a>
+      </div>
+      <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--brand-slate); border-top: 1px solid #f0e7db; padding-top: 1.5rem;">📬 For media inquiries, please use the contact form or email press@quentra-pancake.com</p>
+    </div>
+
+    <!-- right: contact form -->
+    <div class="contact-form-card">
+      <h3>Send a message</h3>
+      <p class="form-desc">We’ll get back to you within 24 hours (usually faster, unless we’re flipping pancakes).</p>
+      <form>
+        <div class="form-group">
+          <label for="name">Full name</label>
+          <input type="text" id="name" placeholder="e.g., Maple Syrup">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option>General inquiry</option>
+            <option>Collaboration / partnership</option>
+            <option>Press / media</option>
+            <option>Recipe suggestion</option>
+            <option>Technical question</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us about your pancake ripple story…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">🥞 Send ripple</button>
+      </form>
+    </div>
+
+    <!-- map / extra visual (spans full width) -->
+    <div class="contact-map">
+      <div class="map-pin">
+        <span>🗺️</span>
+        <span><strong>Find us:</strong> 42 Batter Lane, Brunchville</span>
+      </div>
+      <div class="img-placeholder" style="height: 80px; flex: 1; min-width: 150px;">
+        🥞 map · pancake district
+      </div>
+      <div style="font-size: 0.9rem; color: var(--brand-slate);">
+        <span style="background: var(--brand-gold); color: white; padding: 0.2rem 1rem; border-radius: 50px;">Open Mon–Fri 9am–5pm</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-orbit">
+    <div>
+      <div class="brand-footer">Quentra · Pancake Ripple</div>
+      <p style="margin-top: 0.8rem; max-width: 300px; color: #b8aaa0;">Authority blog for culinary science, technique, and the art of breakfast.</p>
+      <p style="margin-top: 1.2rem; font-size: 0.8rem;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col"><h5>Explore</h5><a href="#">Blog</a><a href="#">Categories</a><a href="#">Authors</a><a href="#">Archive</a></div>
+    <div class="col"><h5>Info</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+    <div class="col"><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a><a href="#">Sitemap</a></div>
+  </footer>
+</div>
+</body>
+</html>
